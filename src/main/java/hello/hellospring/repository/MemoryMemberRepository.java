@@ -1,8 +1,10 @@
 package hello.hellospring.repository;
 
 import hello.hellospring.domain.Member;
+import org.springframework.stereotype.Repository;
 
 import java.util.*;
+
 
 public class MemoryMemberRepository implements MemberRepository {
 
@@ -31,6 +33,10 @@ public class MemoryMemberRepository implements MemberRepository {
 
     @Override
     public List<Member> findAll() {
+        System.out.println("실행됨");
+        for(Member str : store.values()){
+            System.out.println(str.getName());
+        }
         return new ArrayList<>(store.values());
     }
 
